@@ -15,8 +15,8 @@ public class SequenceGeneratorService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    public long getNextUserId() {
-        String seqName = "users_sequence";
+    public long getNextSequenceId(String collectionName) {
+        String seqName = collectionName + "_sequence";
 
         Query query = new Query(where("_id").is(seqName));
         Update update = new Update().inc("seq", 1);
@@ -28,3 +28,4 @@ public class SequenceGeneratorService {
         return (sequence != null) ? sequence.getSeq() : 1;
     }
 }
+

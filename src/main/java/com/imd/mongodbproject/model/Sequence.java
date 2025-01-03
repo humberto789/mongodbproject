@@ -35,3 +35,4 @@ public class Sequence {
         this.seq = seq;
     }
 }
+
